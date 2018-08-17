@@ -18,6 +18,30 @@ function Snake() {
     }
 
     this.dir = function(x, y){
+        /*
+          This if statement disallows the direction to
+          be changed to the opposite of the reverse direction
+
+                 x   y
+          up     0  -1  // allow change to left or right 1,0
+          down   0   1
+          left  -1   0  // allow change to up or down 0,1
+          right  1   0
+
+          we can check if a reverse happens by seeing if the absolute
+          values of x and y change from current direction to new direction
+        */
+        if (Math.abs(x) === Math.abs(this.xspeed) &&
+            Math.abs(y) === Math.abs(this.yspeed))
+        {
+          /*
+            if we reach this return statement,
+            we leave the function before the xspeed and yspeed
+            are updated
+          */
+          return
+        }
+
         this.xspeed = x;
         this.yspeed = y;
     }
