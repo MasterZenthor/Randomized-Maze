@@ -20,7 +20,10 @@ function Snake() {
     this.dir = function(x, y){
         /*
           This if statement disallows the direction to
-          be changed to the opposite of the reverse direction
+          be changed to the opposite of the current direction
+	  by checking the proposed changes (x,y) to the current
+	  (xspeed, yspeed) and noting any difference in their
+	  absolute values
 
                  x   y
           up     0  -1  // allow change to left or right 1,0
